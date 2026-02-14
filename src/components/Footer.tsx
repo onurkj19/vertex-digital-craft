@@ -41,11 +41,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <a href="#" className="font-display text-xl font-bold text-white flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">V</span>
-              </div>
-              Vertex<span className="text-gradient"> Digital</span>
+            <a href="#" className="flex items-center gap-2">
+              <img src="/logo.png" alt="Vertex Web Solutions" className="h-12 w-auto" />
             </a>
             <p className="text-white/40 text-sm mt-4 leading-relaxed">
               A full-service digital agency with 400+ specialized professionals delivering world-class 
