@@ -1,26 +1,71 @@
-import { Shield, MessageCircle, TrendingUp, HeartHandshake } from "lucide-react";
+import {
+  Shield,
+  MessageCircle,
+  TrendingUp,
+  HeartHandshake,
+  Rocket,
+  Users,
+  Award,
+  Clock,
+} from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const reasons = [
   {
-    icon: Shield,
-    title: "Swiss Quality Standards",
-    description: "Every project is built with the precision, reliability, and attention to detail Switzerland is renowned for.",
+    icon: Users,
+    title: "400+ In-House Experts",
+    description: "No outsourcing, no freelancers. Every project is handled by our dedicated teams of specialists across 6 departments.",
+    stat: "400+",
+    statLabel: "Team Members",
   },
   {
-    icon: MessageCircle,
-    title: "Transparent Communication",
-    description: "Clear timelines, honest feedback, and regular updates — you always know where your project stands.",
+    icon: Rocket,
+    title: "End-to-End Solutions",
+    description: "From initial concept to final launch and beyond — we handle every aspect of your digital journey under one roof.",
+    stat: "A-Z",
+    statLabel: "Full Coverage",
   },
   {
     icon: TrendingUp,
-    title: "Performance-Driven Solutions",
-    description: "We don't just build websites — we create digital tools engineered to deliver measurable business results.",
+    title: "Proven ROI",
+    description: "Our clients see an average 340% return on investment. We don't just build — we engineer measurable business outcomes.",
+    stat: "340%",
+    statLabel: "Avg. ROI",
+  },
+  {
+    icon: Award,
+    title: "Award-Winning Quality",
+    description: "Recognized as a top digital agency with 50+ industry awards. We set the standard for excellence in digital.",
+    stat: "50+",
+    statLabel: "Industry Awards",
+  },
+  {
+    icon: Clock,
+    title: "Lightning Fast Delivery",
+    description: "Dedicated teams mean faster timelines. We deliver complex projects 3x faster than typical agencies without cutting corners.",
+    stat: "3x",
+    statLabel: "Faster Delivery",
+  },
+  {
+    icon: Shield,
+    title: "Enterprise Security",
+    description: "SOC 2, GDPR, HIPAA compliant. Your data and projects are protected by bank-grade security protocols and practices.",
+    stat: "99.9%",
+    statLabel: "Uptime SLA",
+  },
+  {
+    icon: MessageCircle,
+    title: "24/7 Dedicated Support",
+    description: "Your dedicated project manager and support team are always available. Real people, real responses, real results.",
+    stat: "24/7",
+    statLabel: "Support Available",
   },
   {
     icon: HeartHandshake,
-    title: "Long-Term Support",
-    description: "Our partnership doesn't end at launch. We provide ongoing support, maintenance, and optimization.",
+    title: "Long-Term Partnerships",
+    description: "92% of our clients stay with us for 3+ years. We're invested in your growth — not just the project launch.",
+    stat: "92%",
+    statLabel: "Client Retention",
   },
 ];
 
@@ -32,22 +77,28 @@ const WhyUs = () => {
           <div className="text-center mb-16">
             <span className="text-sm font-semibold text-accent uppercase tracking-widest">Why Choose Us</span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-              Built on <span className="text-gradient">Trust & Excellence</span>
+              Built on <span className="text-gradient">Trust, Scale & Results</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              What sets Vertex Web Solutions apart from the rest.
+              We don't just promise results — we guarantee them. Here's why leading brands choose Vertex Digital.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {reasons.map((reason, i) => (
-            <ScrollReveal key={reason.title} delay={i * 100}>
-              <div className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-accent/20 transition-colors">
-                  <reason.icon size={28} className="text-accent" />
+            <ScrollReveal key={reason.title} delay={i * 80}>
+              <div className="group bg-card border border-border rounded-2xl p-6 hover:border-accent/30 transition-all duration-300 h-full hover-glow">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 group-hover:scale-110 transition-all">
+                    <reason.icon size={24} className="text-accent" />
+                  </div>
+                  <div className="text-right">
+                    <div className="font-display text-xl font-bold text-gradient">{reason.stat}</div>
+                    <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{reason.statLabel}</div>
+                  </div>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-3">{reason.title}</h3>
+                <h3 className="font-display text-base font-semibold text-foreground mb-2">{reason.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{reason.description}</p>
               </div>
             </ScrollReveal>

@@ -6,6 +6,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "Team", href: "#team" },
   { label: "Why Us", href: "#why-us" },
   { label: "Contact", href: "#contact" },
 ];
@@ -45,19 +46,23 @@ const Navbar = () => {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground">
-          Vertex<span className="text-gradient"> Web Solutions</span>
+        <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+            <span className="text-white font-bold text-sm">V</span>
+          </div>
+          Vertex<span className="text-gradient"> Digital</span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => scrollTo(link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
             </button>
           ))}
           <button
@@ -69,14 +74,14 @@ const Navbar = () => {
           </button>
           <Button
             onClick={() => scrollTo("#contact")}
-            className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-6"
+            className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-6 shadow-lg shadow-accent/20"
           >
-            Get a Quote
+            Get a Free Quote
           </Button>
         </div>
 
         {/* Mobile toggle */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full text-muted-foreground hover:text-foreground transition-colors"
@@ -92,7 +97,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border">
           <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <button
@@ -107,7 +112,7 @@ const Navbar = () => {
               onClick={() => scrollTo("#contact")}
               className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full w-full"
             >
-              Get a Quote
+              Get a Free Quote
             </Button>
           </div>
         </div>
