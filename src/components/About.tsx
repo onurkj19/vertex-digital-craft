@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 
 const stats = [
-  { value: 400, suffix: "+", label: "Team Members", description: "Specialized professionals" },
-  { value: 2500, suffix: "+", label: "Projects Delivered", description: "Across 40+ countries" },
-  { value: 12, suffix: "+", label: "Years of Excellence", description: "Industry experience" },
-  { value: 99, suffix: "%", label: "Client Satisfaction", description: "5-star rated agency" },
+  { value: 400, suffix: "+", label: "Team Members", description: "Specialized professionals", color: "from-blue-500 to-cyan-400" },
+  { value: 2500, suffix: "+", label: "Projects Delivered", description: "Across 40+ countries", color: "from-violet-500 to-purple-400" },
+  { value: 12, suffix: "+", label: "Years of Excellence", description: "Industry experience", color: "from-emerald-500 to-green-400" },
+  { value: 99, suffix: "%", label: "Client Satisfaction", description: "5-star rated agency", color: "from-amber-500 to-yellow-400" },
 ];
 
 function useCountUp(target: number, duration = 2000, trigger = false) {
@@ -28,10 +28,10 @@ function useCountUp(target: number, duration = 2000, trigger = false) {
   return count;
 }
 
-const StatCard = ({ value, suffix, label, description, delay }: { value: number; suffix: string; label: string; description: string; delay: number }) => {
+const StatCard = ({ value, suffix, label, description, color, delay }: { value: number; suffix: string; label: string; description: string; color: string; delay: number }) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const count = useCountUp(value, 2000, visible);
+  const count = useCountUp(value, 2200, visible);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,9 +45,12 @@ const StatCard = ({ value, suffix, label, description, delay }: { value: number;
   return (
     <div
       ref={ref}
-      className="bg-card border border-border rounded-2xl p-6 text-center hover:border-accent/30 transition-all duration-300 hover-glow group"
+      className="relative bg-card border border-border rounded-2xl p-6 text-center hover:border-accent/30 transition-all duration-500 hover-glow group overflow-hidden shimmer"
       style={{ animationDelay: `${delay}ms` }}
     >
+      {/* Top gradient line */}
+      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+      
       <div className="font-display text-4xl sm:text-5xl font-bold text-gradient mb-1 count-up">
         {count}{suffix}
       </div>
@@ -59,8 +62,11 @@ const StatCard = ({ value, suffix, label, description, delay }: { value: number;
 
 const About = () => {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-24 lg:py-32 bg-background relative">
+      {/* Subtle background decoration */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/3 rounded-full blur-[120px]" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
             <div>
@@ -82,7 +88,7 @@ const About = () => {
                 {["Development", "Design", "Marketing", "AI & ML", "E-Commerce", "Branding"].map((tag) => (
                   <span
                     key={tag}
-                    className="px-4 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20"
+                    className="px-4 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 hover:scale-105 transition-all cursor-default"
                   >
                     {tag}
                   </span>

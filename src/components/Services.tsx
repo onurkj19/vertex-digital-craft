@@ -139,8 +139,10 @@ const Services = () => {
     : services.filter((s) => s.category === activeCategory);
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-secondary/50">
-      <div className="container mx-auto px-6">
+    <section id="services" className="py-24 lg:py-32 bg-secondary/50 relative">
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/3 rounded-full blur-[100px]" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-12">
             <span className="text-sm font-semibold text-accent uppercase tracking-widest">Our Services</span>
@@ -162,10 +164,10 @@ const Services = () => {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat.id
-                    ? "bg-accent text-white shadow-lg shadow-accent/25"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-accent/30"
+                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25 scale-105"
+                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-accent/30 hover:scale-105"
                 }`}
               >
                 {cat.label}
@@ -177,14 +179,19 @@ const Services = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filteredServices.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 60}>
-              <div className={`group bg-card border rounded-2xl p-6 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 h-full ${
+              <div className={`group bg-card border rounded-2xl p-6 transition-all duration-500 h-full relative overflow-hidden ${
                 service.highlight ? "border-accent/20 glow-border" : "border-border"
-              }`}>
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all">
-                  <service.icon size={24} className="text-accent" />
+              } hover:border-accent/30 hover-glow`}>
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <service.icon size={24} className="text-accent" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
             </ScrollReveal>
           ))}
