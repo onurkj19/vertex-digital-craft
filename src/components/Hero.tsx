@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy pt-20">
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[128px] animate-pulse-glow" />
