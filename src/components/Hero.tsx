@@ -80,8 +80,13 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center">
+        {/* Logo */}
+        <div className="mb-6 animate-fade-up">
+          <img src="/logo.png" alt="Vertex Web Solutions" className="h-16 w-auto mx-auto" />
+        </div>
+
         {/* Badge */}
-        <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-400/20 bg-blue-500/10 mb-8 animate-fade-up backdrop-blur-sm">
+        <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-400/20 bg-blue-500/10 mb-8 animate-fade-up [animation-delay:50ms] backdrop-blur-sm">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-sm font-medium text-blue-300">400+ Experts Ready to Build Your Vision</span>
         </div>

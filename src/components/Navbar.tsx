@@ -46,13 +46,8 @@ const Navbar = () => {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="font-display text-xl font-bold tracking-tight flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
-            <span className="text-white font-bold text-sm">V</span>
-          </div>
-          <span className={scrolled ? "text-foreground" : "text-white"}>
-            Vertex<span className="text-gradient"> Digital</span>
-          </span>
+        <a href="#" className="flex items-center group">
+          <img src="/logo.png" alt="Vertex Web Solutions" className="h-12 w-auto group-hover:scale-105 transition-transform" />
         </a>
 
         {/* Desktop */}

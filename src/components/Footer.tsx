@@ -41,11 +41,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <a href="#" className="font-display text-xl font-bold text-white flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">V</span>
-              </div>
-              Vertex<span className="text-gradient"> Digital</span>
+            <a href="#" className="flex items-center">
+              <img src="/logo.png" alt="Vertex Web Solutions" className="h-14 w-auto" />
             </a>
             <p className="text-white/40 text-sm mt-4 leading-relaxed">
               A full-service digital agency with 400+ specialized professionals delivering world-class 
@@ -127,7 +124,7 @@ const Footer = () => {
       <div className="border-t border-white/5">
         <div className="container mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/25">
-            &copy; {new Date().getFullYear()} Vertex Digital AG. All rights reserved.
+            &copy; {new Date().getFullYear()} Vertex Web Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-white/25">
             <button className="hover:text-white/50 transition-colors">Privacy Policy</button>
